@@ -1,11 +1,11 @@
 <?php
-date_default_timezone_set('Asia/Tehran'); // Set timezone to Iran
+date_default_timezone_set('Asia/Tehran');
 
-// Add one hour to the current time
 $time = strtotime('+1 hour');
-$hours = date("H");
-$minutes = date("i") + 1; // Increment minutes by 1
-$seconds = date("s");
+
+$hours = date("H", $time);
+$minutes = date("i", $time) + 1; // Increment minutes by 1
+$seconds = date("s", $time);
 $targetSeconds = floor($seconds / 20) * 20 + 22;
 
 echo "${hours}:${minutes}:59:00";
