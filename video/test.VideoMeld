@@ -1,0 +1,102 @@
+<VideoMeldProject Version="1.12">
+  <Settings Speed="1.000000">
+    <Audio Volume="1.000000" Channels="1"/>
+    <Video AspectRatio="1.333300" ImageDuration="5.0000000" AspectCorrection="On"/>
+  </Settings>
+  <Folders>
+    <Video>C:\Users\HP\Documents\Scripts\sync player\static\</Video>
+    <Audio>C:\Users\HP\Music</Audio>
+    <Image>C:\Users\HP\Pictures</Image>
+  </Folders>
+  <State>
+    <Cursor Start="6.4945963" Finish="6.4945963"/>
+    <View Start="0.0000000" Finish="40.4303239"/>
+  </State>
+  <Tracks>
+    <Track Name="Track 1" Height="120" Row="0" Sections="2" Length="40.1691666" Selected="Yes">
+      <Settings>
+        <Buttons Mute="Off" Solo="Off"/>
+        <Volume Value="1.0000"/>
+      </Settings>
+      <Sections>
+        <Section Name="Countdown Concept - Great for the Beginning of the Movie 19609984 Stock Video at Vecteezy" Row="0" Start="0.0000000" From="4.0000000" To="12.0840000" Colour="#FF50E0FF" Speed="1.00000000" Type="Video">
+          <Settings>
+            <Buttons Mute="Off"/>
+          </Settings>
+          <Fade Name="Fade" Type="Variable" Varying="Yes">
+            <Values>
+              <Value Time="0.000000" Anchor="1" Curve="1">100.000000</Value>
+            </Values>
+          </Fade>
+          <FileName>C:\Users\HP\Downloads\Video\Countdown Concept - Great for the Beginning of the Movie 19609984 Stock Video at Vecteezy.mp4</FileName>
+          <Effects>
+            <Effect Name="Aspect Ratio Correction" Enabled="Yes" Start="0.000000" Finish="0.000000" AnchorStart="1" AnchorFinish="2" PresetName="">
+              <Parameters>
+                <Parameter Name="Ratio" Type="Variable" Varying="No">
+                  <Values>
+                    <Value Time="0.000000" Anchor="1" Curve="1">1.000000</Value>
+                  </Values>
+                </Parameter>
+                <Parameter Name="Border" Type="List" Varying="No">
+                  <Values>
+                    <Value Time="0.000000" Anchor="1" Curve="1">Transparent</Value>
+                  </Values>
+                </Parameter>
+                <Parameter Name="Resolution" Type="List" Varying="No">
+                  <Values>
+                    <Value Time="0.000000" Anchor="1" Curve="1">Rendered</Value>
+                  </Values>
+                </Parameter>
+              </Parameters>
+            </Effect>
+          </Effects>
+          <PreviewFile>C:\Users\HP\Downloads\Video\Countdown Concept - Great for the Beginning of the Movie 19609984 Stock Video at Vecteezy.mp4</PreviewFile>
+        </Section>
+        <Section Name="ww" Row="0" Start="8.0840000" From="0.0000000" To="32.0851666" Colour="#FF50E0FF" Speed="1.00000000" Type="Video">
+          <Settings>
+            <Buttons Mute="Off"/>
+          </Settings>
+          <Fade Name="Fade" Type="Variable" Varying="Yes">
+            <Values>
+              <Value Time="0.000000" Anchor="1" Curve="1">100.000000</Value>
+            </Values>
+          </Fade>
+          <FileName>C:\Users\HP\Documents\Scripts\sync player\static\ww.mp4</FileName>
+          <Effects>
+            <Effect Name="Aspect Ratio Correction" Enabled="Yes" Start="0.000000" Finish="0.000000" AnchorStart="1" AnchorFinish="2" PresetName="">
+              <Parameters>
+                <Parameter Name="Ratio" Type="Variable" Varying="No">
+                  <Values>
+                    <Value Time="0.000000" Anchor="1" Curve="1">1.000000</Value>
+                  </Values>
+                </Parameter>
+                <Parameter Name="Border" Type="List" Varying="No">
+                  <Values>
+                    <Value Time="0.000000" Anchor="1" Curve="1">Transparent</Value>
+                  </Values>
+                </Parameter>
+                <Parameter Name="Resolution" Type="List" Varying="No">
+                  <Values>
+                    <Value Time="0.000000" Anchor="1" Curve="1">Rendered</Value>
+                  </Values>
+                </Parameter>
+              </Parameters>
+            </Effect>
+            <Effect Name="Opacity" Enabled="Yes" Start="0.000000" Finish="0.000000" AnchorStart="1" AnchorFinish="2" PresetName="">
+              <Parameters>
+                <Parameter Name="Opacity" Type="Variable" Varying="Yes">
+                  <Values>
+                    <Value Time="0.104342" Anchor="1" Curve="1">0.000000</Value>
+                    <Value Time="1.356446" Anchor="1" Curve="1">100.000000</Value>
+                    <Value Time="4.069338" Anchor="1" Curve="1">100.000000</Value>
+                  </Values>
+                </Parameter>
+              </Parameters>
+            </Effect>
+          </Effects>
+          <PreviewFile>C:\Users\HP\Documents\Scripts\sync player\static\ww.mp4</PreviewFile>
+        </Section>
+      </Sections>
+    </Track>
+  </Tracks>
+</VideoMeldProject>

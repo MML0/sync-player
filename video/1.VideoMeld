@@ -1,0 +1,156 @@
+<VideoMeldProject Version="1.12">
+  <Settings Speed="1.000000">
+    <Audio Volume="1.000000" Channels="2"/>
+    <Video AspectRatio="1.333300" ImageDuration="5.0000000" AspectCorrection="On"/>
+  </Settings>
+  <Folders>
+    <Video>C:\Users\HP\Documents\Scripts\sync player\static\</Video>
+    <Audio>C:\Users\HP\Music</Audio>
+    <Image>C:\Users\HP\Pictures</Image>
+  </Folders>
+  <State>
+    <Cursor Start="3.5029060" Finish="3.5029060"/>
+    <View Start="0.0000000" Finish="1:11.1914080"/>
+  </State>
+  <Tracks>
+    <Track Name="Track 1" Height="120" Row="0" Sections="2" Length="44.2000000" Selected="Yes">
+      <Settings>
+        <Buttons Mute="Off" Solo="Off"/>
+        <Volume Value="1.0000"/>
+      </Settings>
+      <Sections>
+        <Section Name="Countdown Concept - Great for the Beginning of the Movie 19609984 Stock Video at Vecteezy" Row="0" Start="0.0000000" From="0.0000000" To="4.0000000" Colour="#FF50E0FF" Speed="1.00000000" Type="Video">
+          <Settings>
+            <Buttons Mute="Off"/>
+          </Settings>
+          <Fade Name="Fade" Type="Variable" Varying="Yes">
+            <Values>
+              <Value Time="0.000000" Anchor="1" Curve="1">100.000000</Value>
+            </Values>
+          </Fade>
+          <FileName>C:\Users\HP\Downloads\Video\Countdown Concept - Great for the Beginning of the Movie 19609984 Stock Video at Vecteezy.mp4</FileName>
+          <Effects>
+            <Effect Name="Aspect Ratio Correction" Enabled="Yes" Start="0.000000" Finish="0.000000" AnchorStart="1" AnchorFinish="2" PresetName="">
+              <Parameters>
+                <Parameter Name="Ratio" Type="Variable" Varying="No">
+                  <Values>
+                    <Value Time="0.000000" Anchor="1" Curve="1">1.000000</Value>
+                  </Values>
+                </Parameter>
+                <Parameter Name="Border" Type="List" Varying="No">
+                  <Values>
+                    <Value Time="0.000000" Anchor="1" Curve="1">Transparent</Value>
+                  </Values>
+                </Parameter>
+                <Parameter Name="Resolution" Type="List" Varying="No">
+                  <Values>
+                    <Value Time="0.000000" Anchor="1" Curve="1">Rendered</Value>
+                  </Values>
+                </Parameter>
+              </Parameters>
+            </Effect>
+          </Effects>
+          <PreviewFile>C:\Users\HP\Downloads\Video\Countdown Concept - Great for the Beginning of the Movie 19609984 Stock Video at Vecteezy.mp4</PreviewFile>
+        </Section>
+        <Section Name="output" Row="0" Start="4.0000000" From="0.0000000" To="40.2000000" Colour="#FF50E0FF" Speed="1.00000000" Type="Video" Selected="Yes">
+          <Settings>
+            <Buttons Mute="Off"/>
+          </Settings>
+          <Fade Name="Fade" Type="Variable" Varying="Yes">
+            <Values>
+              <Value Time="0.000000" Anchor="1" Curve="1">100.000000</Value>
+            </Values>
+          </Fade>
+          <FileName>C:\Users\HP\Documents\Scripts\sync player\video\output.mp4</FileName>
+          <Effects>
+            <Effect Name="Aspect Ratio Correction" Enabled="Yes" Start="0.000000" Finish="0.000000" AnchorStart="1" AnchorFinish="2" PresetName="">
+              <Parameters>
+                <Parameter Name="Ratio" Type="Variable" Varying="No">
+                  <Values>
+                    <Value Time="0.000000" Anchor="1" Curve="1">1.000000</Value>
+                  </Values>
+                </Parameter>
+                <Parameter Name="Border" Type="List" Varying="No">
+                  <Values>
+                    <Value Time="0.000000" Anchor="1" Curve="1">Transparent</Value>
+                  </Values>
+                </Parameter>
+                <Parameter Name="Resolution" Type="List" Varying="No">
+                  <Values>
+                    <Value Time="0.000000" Anchor="1" Curve="1">Rendered</Value>
+                  </Values>
+                </Parameter>
+              </Parameters>
+            </Effect>
+            <Effect Name="Crop/Pan/Zoom" Enabled="Yes" Start="0.000000" Finish="0.000000" AnchorStart="1" AnchorFinish="2" PresetName="">
+              <Parameters>
+                <Parameter Name="Left" Type="Variable" Varying="No" Group="Area">
+                  <Values>
+                    <Value Time="0.000000" Anchor="1" Curve="0">-0.500000</Value>
+                  </Values>
+                </Parameter>
+                <Parameter Name="Top" Type="Variable" Varying="No" Group="Area">
+                  <Values>
+                    <Value Time="0.000000" Anchor="1" Curve="0">0.170000</Value>
+                  </Values>
+                </Parameter>
+                <Parameter Name="Right" Type="Variable" Varying="No" Group="Area">
+                  <Values>
+                    <Value Time="0.000000" Anchor="1" Curve="0">0.170000</Value>
+                  </Values>
+                </Parameter>
+                <Parameter Name="Bottom" Type="Variable" Varying="No" Group="Area">
+                  <Values>
+                    <Value Time="0.000000" Anchor="1" Curve="0">-0.500000</Value>
+                  </Values>
+                </Parameter>
+                <Parameter Name="Mode" Type="List" Varying="No">
+                  <Values>
+                    <Value Time="0.000000" Anchor="1" Curve="0">Proportional</Value>
+                  </Values>
+                </Parameter>
+              </Parameters>
+              <Settings>Area.AspectRatio=1.000000
+</Settings>
+            </Effect>
+            <Effect Name="Text" Enabled="Yes" Start="0.000000" Finish="-36.410000" AnchorStart="1" AnchorFinish="2" PresetName="">
+              <Parameters>
+                <Parameter Name="Text" Type="Text" Varying="No">
+                  <Values>
+                    <Value Time="0.000000" Anchor="1" Curve="1">5</Value>
+                  </Values>
+                </Parameter>
+                <Parameter Name="X" Type="Variable" Varying="No" Group="Center">
+                  <Values>
+                    <Value Time="0.000000" Anchor="1" Curve="1">0.000000</Value>
+                  </Values>
+                </Parameter>
+                <Parameter Name="Y" Type="Variable" Varying="No" Group="Center">
+                  <Values>
+                    <Value Time="0.000000" Anchor="1" Curve="1">0.000000</Value>
+                  </Values>
+                </Parameter>
+                <Parameter Name="Colour" Type="Colour" Varying="No">
+                  <Values>
+                    <Value Time="0.000000" Anchor="1" Curve="1">#FFFFFFFF</Value>
+                  </Values>
+                </Parameter>
+                <Parameter Name="Font" Type="Text" Varying="No">
+                  <Values>
+                    <Value Time="0.000000" Anchor="1" Curve="1">Arial</Value>
+                  </Values>
+                </Parameter>
+                <Parameter Name="Size" Type="Variable" Varying="No">
+                  <Values>
+                    <Value Time="0.000000" Anchor="1" Curve="1">0.450000</Value>
+                  </Values>
+                </Parameter>
+              </Parameters>
+            </Effect>
+          </Effects>
+          <PreviewFile>C:\Users\HP\Documents\Scripts\sync player\video\output.mp4</PreviewFile>
+        </Section>
+      </Sections>
+    </Track>
+  </Tracks>
+</VideoMeldProject>

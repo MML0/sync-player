@@ -1,0 +1,36 @@
+    Profile: task2
+    	Event: Device Boot
+    
+    
+    
+    Enter Task: open browser
+    
+    A1: Wait [
+         MS: 0
+         Seconds: 2
+         Minutes: 0
+         Hours: 0
+         Days: 0 ]
+    
+    A2: Launch App [
+         Package/App Name: Lightning
+         Data: http://192.168.1.114:3000/?n=3 ]
+    
+    A3: Wait [
+         MS: 0
+         Seconds: 2
+         Minutes: 0
+         Hours: 0
+         Days: 0 ]
+    
+    A4: Dpad [
+         Button: Up
+         Repeat Times: 4 ]
+    
+    A5: Dpad [
+         Button: Press
+         Repeat Times: 1 ]
+    
+    
+
+

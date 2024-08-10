@@ -1,0 +1,58 @@
+<TaskerData sr="" dvi="1" tv="6.2.22">
+	<Profile sr="prof2" ve="2">
+		<cdate>1723113430527</cdate>
+		<clp>true</clp>
+		<edate>1723206599485</edate>
+		<flags>8</flags>
+		<id>2</id>
+		<mid0>3</mid0>
+		<nme>task1</nme>
+		<Event sr="con0" ve="2">
+			<code>411</code>
+			<pri>0</pri>
+		</Event>
+	</Profile>
+	<Task sr="task3">
+		<cdate>1723113444563</cdate>
+		<edate>1723284837528</edate>
+		<id>3</id>
+		<nme>open browser</nme>
+		<Action sr="act0" ve="7">
+			<code>30</code>
+			<Int sr="arg0" val="0"/>
+			<Int sr="arg1" val="2"/>
+			<Int sr="arg2" val="0"/>
+			<Int sr="arg3" val="0"/>
+			<Int sr="arg4" val="0"/>
+		</Action>
+		<Action sr="act1" ve="7">
+			<code>20</code>
+			<App sr="arg0">
+				<appClass>acr.browser.lightning.MainActivity</appClass>
+				<appPkg>acr.browser.lightning</appPkg>
+				<label>Lightning</label>
+			</App>
+			<Str sr="arg1" ve="3">http://192.168.1.114:3000/?n=3</Str>
+			<Int sr="arg2" val="0"/>
+			<Int sr="arg3" val="0"/>
+		</Action>
+		<Action sr="act2" ve="7">
+			<code>30</code>
+			<Int sr="arg0" val="0"/>
+			<Int sr="arg1" val="2"/>
+			<Int sr="arg2" val="0"/>
+			<Int sr="arg3" val="0"/>
+			<Int sr="arg4" val="0"/>
+		</Action>
+		<Action sr="act3" ve="7">
+			<code>701</code>
+			<Int sr="arg0" val="0"/>
+			<Int sr="arg1" val="4"/>
+		</Action>
+		<Action sr="act4" ve="7">
+			<code>701</code>
+			<Int sr="arg0" val="4"/>
+			<Int sr="arg1" val="1"/>
+		</Action>
+	</Task>
+</TaskerData>
