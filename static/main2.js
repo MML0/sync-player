@@ -3,18 +3,23 @@ function wait(ms) {
 }
 async function get_time(){
     var startTime = Date.now();
-    const response = await fetch('current_time.php');
-    const data = await response.json();
+        try {
+            const response = await fetch('current_time.php');
+            const data = await response.json();
 
-    let now_local = new Date(data.unixtime);
-    // turn to Iran local time
-    const now = new Date(data.unixtime+now_local.getTimezoneOffset()*1000*60+4.5*60000*60); // turn to Iran local time
-    var endTime = Date.now(); var latency = endTime - startTime;//console.log('ping',latency);
-    //console.log('ping: ',latency);
-    
-    unixtime = data.unixtime;
-    return {now , latency,unixtime}
-}
+            let now_local = new Date(data.unixtime);
+            // turn to Iran local time
+            const now = new Date(data.unixtime+now_local.getTimezoneOffset()*1000*60+4.5*60000*60); // turn to Iran local time
+            var endTime = Date.now(); var latency = endTime - startTime;
+            console.log('ping: ',latency);
+            
+            unixtime = data.unixtime;
+            return {now , latency,unixtime}
+        }catch (error) {
+        console.error('Fetch error:', error);
+        return { now: null, latency: 9999, unixtime: null };
+    }
+    }
 async function get_target_time(){
     const response = await fetch('target_time.php');
     const data = await response.text() ;
@@ -52,7 +57,7 @@ async function main(first_time=false){
         latency = result.latency;
         if (latency > (latency_limit_ms+lowering_expectency)){ await wait(500 + Math.random() * 1000);log('latency: '+latency+' r: '+lowering_expectency/5)}
     }
-    //console.log('re: ',timeDiff/1000);
+    console.log('rem: ',timeDiff/1000);
 
     //if its a tv not a local chrome tab or my phone
     if(navigator.userAgent.toLowerCase().includes('android') && window.innerWidth > 500) {
@@ -78,7 +83,7 @@ const video_duration_s = 10; //44
 
 const searchParams = new URLSearchParams(window.location.search);
 const identity = searchParams.get('n');
-//console.log('id',identity);
+console.log('id',identity);
 
 window.onload = () => setTimeout(()=>{main(true)}, 1000 + Math.random() * 1000);
 
