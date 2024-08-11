@@ -10,7 +10,7 @@ async function get_time(){
     // turn to Iran local time
     const now = new Date(data.unixtime+now_local.getTimezoneOffset()*1000*60+4.5*60000*60); // turn to Iran local time
     var endTime = Date.now(); var latency = endTime - startTime;//console.log('ping',latency);
-    console.log(latency);
+    //console.log(latency);
     
     unixtime = data.unixtime;
     return {now , latency,unixtime}
@@ -26,17 +26,22 @@ async function log(text) {
 async function main(first_time=false){
     latency = 9999;
     const target_time = await get_target_time();
-    if ('reload' in target_time){location.reload();}
-    
+
+    //reload if needed
+    if (target_time.includes('reload')){setTimeout(() => {location.reload();},5000);return;}
+
     const video = document.getElementById('myVideo');
     video.play();
+    video.play();
+    setTimeout(() => {video.play();}, 200);
+    setTimeout(() => {video.play();}, 400);
     //video.currentTime = 0;
     //pause video for first time for just testing
-    if(first_time) setTimeout(() => {video.pause();video.currentTime = 0;},500);
+    if(first_time) setTimeout(() => {video.pause();video.currentTime = 0;},900);
     
     lowering_expectency = 0 ;
     while(latency>(latency_limit_ms+lowering_expectency)){
-        lowering_expectency+=10;
+        lowering_expectency+=5;
         const result = await get_time();
 
         let targetDate = new Date(result.unixtime);
@@ -45,16 +50,16 @@ async function main(first_time=false){
         var timeDiff = targetDate.getTime() - result.now.getTime();
         
         latency = result.latency;
-        if (latency > (latency_limit_ms+lowering_expectency)){ await wait(500 + Math.random() * 1000);log('latency: '+latency+' r: '+lowering_expectency/10)}
+        if (latency > (latency_limit_ms+lowering_expectency)){ await wait(500 + Math.random() * 1000);log('latency: '+latency+' r: '+lowering_expectency/5)}
     }
-    console.log(timeDiff/1000);
+    //console.log(timeDiff/1000);
 
     //if its a tv not a local chrome tab or my phone
     if(navigator.userAgent.toLowerCase().includes('android') && window.innerWidth > 500) {
         latency += 40;
         latency += adjust_tv_times[identity];
     }
-    setTimeout(() => {video.pause();video.currentTime = 0;}, timeDiff -latency-500);
+    setTimeout(() => {video.pause();video.currentTime = 0;}, timeDiff -latency-900);
     setTimeout(() => {
         video.currentTime = 0;
         video.play();
@@ -73,9 +78,9 @@ const video_duration_s = 10; //44
 
 const searchParams = new URLSearchParams(window.location.search);
 const identity = searchParams.get('n');
-console.log(identity);
+//console.log('id',identity);
 
-window.onload = () => setTimeout(()=>{main(true)}, 100 + Math.random() * 100);
+window.onload = () => setTimeout(()=>{main(true)}, 1000 + Math.random() * 1000);
 
 
 document.getElementById('fullscreenBtn').addEventListener('click', function() {
