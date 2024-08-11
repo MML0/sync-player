@@ -10,7 +10,7 @@ async function get_time(){
     // turn to Iran local time
     const now = new Date(data.unixtime+now_local.getTimezoneOffset()*1000*60+4.5*60000*60); // turn to Iran local time
     var endTime = Date.now(); var latency = endTime - startTime;//console.log('ping',latency);
-    //console.log(latency);
+    //console.log('ping: ',latency);
     
     unixtime = data.unixtime;
     return {now , latency,unixtime}
@@ -52,7 +52,7 @@ async function main(first_time=false){
         latency = result.latency;
         if (latency > (latency_limit_ms+lowering_expectency)){ await wait(500 + Math.random() * 1000);log('latency: '+latency+' r: '+lowering_expectency/5)}
     }
-    //console.log(timeDiff/1000);
+    //console.log('re: ',timeDiff/1000);
 
     //if its a tv not a local chrome tab or my phone
     if(navigator.userAgent.toLowerCase().includes('android') && window.innerWidth > 500) {
