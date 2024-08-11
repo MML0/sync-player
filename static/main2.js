@@ -1,79 +1,6 @@
-function set_time(){
-
-  var startTime = Date.now();
-  fetch('current_time.php')
-  .then(response => response.json())
-  .then(data => {
-    now_local = new Date(data.unixtime);
-    //alert(now_local.getTimezoneOffset()*1000)
-    //console.log(data.unixtime,now_local.getTimezoneOffset()*1000*60,4.5*60000*60);
-    
-    const now = new Date(data.unixtime+now_local.getTimezoneOffset()*1000*60+4.5*60000*60);
-    
-    var endTime = Date.now();var latency = endTime - startTime;//console.log('ping',latency);
-    var startTime2 = Date.now();// if its lagging
-    
-
-    if(latency>200  ) {setTimeout(() => {
-      set_time()
-      //location.reload() 
-      }, 100 + Math.random() *100)
-      return
-    }
-
-
-    targetTime = `${now.getHours()}:${now.getMinutes()+1}:59:00`; //${Math.floor(now.getSeconds()/20)*20+22}
-
-    targetTime = `10:30:59:00`; //${Math.floor(now.getSeconds()/20)*20+22}
-    //console.log(now,"fetch",now.getMilliseconds());
-    let targetDate = new Date(data.unixtime);
-    let [hours, minutes, seconds, milliseconds] = targetTime.split(':');
-    targetDate.setHours(hours, minutes, seconds, milliseconds);
-    
-    let timeDiff = targetDate.getTime() - now.getTime();
-    
-    const video = document.getElementById('myVideo');
-    video.play();
-    setTimeout(() => {video.play();}, 200);
-    setTimeout(() => {video.play();}, 400);
-    setTimeout(() => {video.play();}, 600);
-    setTimeout(() => {video.play();}, 800);
-    setTimeout(() => {video.currentTime = 0;}, 1000);
-    setTimeout(() => {video.currentTime = 0;video.pause();},1200);
-    //video.pause();
-    video.currentTime = 0;
-    //setTimeout(() => {video.play();}, 5000)
-    if(navigator.userAgent.toLowerCase().includes('android') && window.innerWidth >600) {latency += 20} ;
-
-
-    var endTime2 = Date.now();
-    var latency2 = endTime2 - startTime2;
-    //console.log('late',latency2);
-    //alert(latency)
-    //alert(timeDiff/100);
-    console.log(timeDiff/1000,latency,latency2);
-    //console.log(video.duration);
-    
-    setTimeout(() => {
-      //video.currentTime = 0;
-      video.play();
-      setTimeout(() => {
-        set_time()
-        //location.reload()
-        }, 40000+ Math.random() *5000)
-      
-    }, timeDiff -latency -latency2*3);
-
-  }).catch((error) => {
-    console.error('An error occurred:', error);
-    //setTimeout(set_time(),2000+Math.random()*2000);
-    
-    });
-}
 function wait(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
-
 async function get_time(){
     var startTime = Date.now();
     const response = await fetch('current_time.php');
@@ -83,6 +10,8 @@ async function get_time(){
     // turn to Iran local time
     const now = new Date(data.unixtime+now_local.getTimezoneOffset()*1000*60+4.5*60000*60); // turn to Iran local time
     var endTime = Date.now(); var latency = endTime - startTime;//console.log('ping',latency);
+    console.log(latency);
+    
     unixtime = data.unixtime;
     return {now , latency,unixtime}
 }
@@ -91,13 +20,23 @@ async function get_target_time(){
     const data = await response.text() ;
     return data;
 }
-
-async function main(){
+async function log(text) {
+    const response = await fetch('log.php?text=n: '+identity+' , '+text);
+}
+async function main(first_time=false){
     latency = 9999;
-    limit_ms = 30 ;
     const target_time = await get_target_time();
-
-    while(latency>limit_ms){
+    if ('reload' in target_time){location.reload();}
+    
+    const video = document.getElementById('myVideo');
+    video.play();
+    //video.currentTime = 0;
+    //pause video for first time for just testing
+    if(first_time) setTimeout(() => {video.pause();video.currentTime = 0;},500);
+    
+    lowering_expectency = 0 ;
+    while(latency>(latency_limit_ms+lowering_expectency)){
+        lowering_expectency+=10;
         const result = await get_time();
 
         let targetDate = new Date(result.unixtime);
@@ -105,30 +44,38 @@ async function main(){
         targetDate.setHours(hours, minutes, seconds, milliseconds);
         var timeDiff = targetDate.getTime() - result.now.getTime();
         
-        console.log('Time :', result.now);
-        console.log('Latency:', result.latency);
         latency = result.latency;
-        if (latency > limit_ms) await wait(1000 + Math.random() * 1000);
+        if (latency > (latency_limit_ms+lowering_expectency)){ await wait(500 + Math.random() * 1000);log('latency: '+latency+' r: '+lowering_expectency/10)}
     }
+    console.log(timeDiff/1000);
 
-    alert(timeDiff/1000)
-    video.play();
-    setTimeout(() => {video.play();}, 200);
-
-    if(navigator.userAgent.toLowerCase().includes('android') && window.innerWidth >600) {
-        latency += 20
-        latency += adjust_tv_times[identity]
-    } ;
-
+    //if its a tv not a local chrome tab or my phone
+    if(navigator.userAgent.toLowerCase().includes('android') && window.innerWidth > 500) {
+        latency += 40;
+        latency += adjust_tv_times[identity];
+    }
+    setTimeout(() => {video.pause();video.currentTime = 0;}, timeDiff -latency-500);
+    setTimeout(() => {
+        video.currentTime = 0;
+        video.play();
+        setTimeout(() => {
+            main()
+            //location.reload()
+        }, video_duration_s*1000 - 1000 - Math.random() *6000)
+        
+      }, timeDiff -latency);
+  
 } 
 
-const adjust_tv_times = {"1":0,"2":0,"3":0,"4":0,"5":0,"6":0,"7":0,"8":0,"9":0,"10":0,"11":0,"12":0,"13":0,"14":0,"15":0,"16":0,"17":0,"18":0,"19":0,"20":0,"21":0,"22":0,"23":0,"24":0,"25":0,"26":0,"27":0,"28":0,"29":0,"30":0};
+const adjust_tv_times = {null:0,"1":0,"2":0,"3":0,"4":0,"5":0,"6":0,"7":0,"8":0,"9":0,"10":0,"11":0,"12":0,"13":0,"14":0,"15":0,"16":0,"17":0,"18":0,"19":0,"20":0,"21":0,"22":0,"23":0,"24":0,"25":0,"26":0,"27":0,"28":0,"29":0,"30":0};
+const latency_limit_ms = 50;
+const video_duration_s = 10; //44
 
 const searchParams = new URLSearchParams(window.location.search);
 const identity = searchParams.get('n');
 console.log(identity);
 
-window.onload = () => setTimeout(main, 100 + Math.random() * 100);
+window.onload = () => setTimeout(()=>{main(true)}, 100 + Math.random() * 100);
 
 
 document.getElementById('fullscreenBtn').addEventListener('click', function() {

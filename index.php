@@ -10,7 +10,7 @@
 </head>
 <body>
     <button id="fullscreenBtn" style="width: 100%; height: 20px;">Go Fullscreen</button>
-    <video id="myVideo" width="640" height="360" autoplay muted>
+    <video id="myVideo" width="640" height="360" autoplay loop muted>
         <source src="serve_file.php?filename=<?php
             // recive TV number as GET value 'n' and map it to coresponding file name
             if(isset($_GET['n'])) {
