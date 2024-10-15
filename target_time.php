@@ -1,12 +1,10 @@
 <?php
-date_default_timezone_set('Asia/Tehran');
+$microtime = microtime(true);
+header('Content-Type: application/json');
+header('Access-Control-Allow-Origin: *');  // Allow CORS
+//usleep(rand(1, 30)*1000);
+//usleep(rand(1, 300)*1000);
+$interval = 20 * 1000 + 60;
 
-$time = strtotime('+1 hour');
-
-$hours = date("H", $time);
-$minutes = date("i", $time) ; // Increment minutes by 1
-$seconds = date("s", $time);
-$targetSeconds = floor($seconds / 20) * 20 + 22;
-
-echo "${hours}:${minutes}:${targetSeconds}:00";
+echo '{"unixtime": '.(floor((int)($microtime * 1000)/$interval+1)*$interval).'}';
 ?>

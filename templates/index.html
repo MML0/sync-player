@@ -3,18 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Screen Stream</title>
 </head>
 <body>
-    <button id="fullscreenBtn" style="width: 100%; height: 20px;">Go Fullscreen</button>
-
-    <!-- Video element -->
-    <video id="myVideo" width="640" height="360" controls muted>
-        <source src="/files/ww.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-    </video>
-
-
-    <script src="/files/main.js"></script>
+    <h1>Screen Stream with Number Overlay</h1>
+    <form action="/video_feed" method="get">
+        <label for="number">Enter Number:</label>
+        <input type="text" id="number" name="number">
+        <button type="submit">Submit</button>
+    </form>
+    <img src="{{ url_for('video_feed') }}" alt="Screen Stream">
 </body>
 </html>
+
