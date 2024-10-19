@@ -34,7 +34,7 @@ async function log(text) {
 async function main(first_time=false){
     latency = 9999;
     const target_time = await get_target_time();
-
+    video_duration_s = target_time.video_duration
     //reload if needed
     //if (target_time.includes('reload')){setTimeout(() => {location.reload();},5000);return;}
 
@@ -83,7 +83,7 @@ async function main(first_time=false){
 
 const adjust_tv_times = {null:0,"1":0,"2":0,"3":0,"4":0,"5":0,"6":0,"7":0,"8":0,"9":0,"10":0,"11":0,"12":0,"13":0,"14":0,"15":0,"16":0,"17":0,"18":0,"19":0,"20":0,"21":0,"22":0,"23":0,"24":0,"25":0,"26":0,"27":0,"28":0,"29":0,"30":0};
 const latency_limit_ms = 60;
-const video_duration_s = 20; //44
+let video_duration_s = 30; //44
 
 const searchParams = new URLSearchParams(window.location.search);
 const identity = searchParams.get('n');
