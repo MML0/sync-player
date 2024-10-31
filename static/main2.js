@@ -21,7 +21,7 @@ async function get_time(){
 
         return { now: null, latency: 9999, unixtime: null };
     }
-    }
+}
 async function get_target_time(){
     const response = await fetch('target_time.php').catch(async (error) => {console.log('An error occurred:', error);await wait(1000 + Math.random() * 1000);main();});
     const data = await response.json();
@@ -106,3 +106,34 @@ document.getElementById('fullscreenBtn').addEventListener('click', function() {
       videoElement.msRequestFullscreen();
   }
 });
+
+async function checkAndReloadVideo(videoElement, videoUrl, lastContentLength) {
+    try {
+      const response = await fetch(videoUrl, { method: 'HEAD' });
+  
+      // Check Content-Length header
+      const contentLength = response.headers.get('Content-Length');
+  
+      // Reload if content length has changed
+      if (contentLength !== lastContentLength) {
+        videoElement.src = videoUrl + "?timestamp=" + new Date().getTime(); // Bypass cache
+        videoElement.load();
+        return contentLength; // Update the content length
+      }
+  
+      return lastContentLength; // No change detected
+    } catch (error) {
+      console.error("Error checking video:", error);
+    }
+  }
+  
+  // Usage example:
+  const videoElement = document.getElementById('myVideo');
+  let lastContentLength = null;
+  
+
+  // Call this function periodically to check for changes
+  setInterval(async () => {
+    lastContentLength = await checkAndReloadVideo(videoElement, '/static/TV_'+identity+'.mp4', lastContentLength);
+  }, 10000); // Check every minute
+  
